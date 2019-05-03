@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="domaine">
+	<class
+		name="Groupes"
+		table="groupes"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="Id"
+			type="integer"
+			column="idgroupe"
+		>
+			<generator class="org.hibernate.id.TableHiLoGenerator"/>
+		</id>
+
+		<property
+			name="Nomgroupe"
+			column="nomgroupe"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+		<property
+			name="Commentairegroupe"
+			column="commentairegroupe"
+			type="string"
+			not-null="false"
+			length="150"
+		/>
+	
+
+		<set name="Grppers" inverse="true">
+			<key column="idgroupe"/>
+			<one-to-many class="Grppers"/>
+		</set>
+
+
+	</class>	
+</hibernate-mapping>

@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="domaine">
+	<class
+		name="Personnes"
+		table="personnes"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="Id"
+			type="integer"
+			column="idpersonne"
+		>
+			<generator class="org.hibernate.id.TableHiLoGenerator"/>
+		</id>
+
+		<property
+			name="Nompersonne"
+			column="nompersonne"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+		<property
+			name="Prenompersonne"
+			column="prenompersonne"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+		<property
+			name="Datenaisspersonne"
+			column="datenaisspersonne"
+			type="timestamp"
+			not-null="false"
+			length="19"
+		/>
+		<property
+			name="Coeffpersonne"
+			column="coeffpersonne"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+	
+
+		<set name="Grppers" inverse="true">
+			<key column="idpersonne"/>
+			<one-to-many class="Grppers"/>
+		</set>
+
+
+	</class>	
+</hibernate-mapping>

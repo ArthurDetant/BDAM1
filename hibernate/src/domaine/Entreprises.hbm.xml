@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="domaine">
+	<class
+		name="Entreprises"
+		table="Entreprises"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="idEntreprise"
+			type="integer"
+			column="idEntreprise"
+		>
+			<generator class="org.hibernate.id.TableHiLoGenerator"/>
+		</id>
+
+		<property
+			name="NomEnt"
+			column="nomEnt"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+		<property
+			name="ListeActivites"
+			column="listeActivites"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+		<property
+			name="NbEmployes"
+			column="nbEmployes"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+
+
+	</class>	
+</hibernate-mapping>
